@@ -3,16 +3,6 @@
 <head>
 <meta charset="UTF-8">
 </head>
-<audio id='haikyu_shoot' src='haikyu_shoot.mp3'></audio>
-<audio id='haikyu_one' src='haikyu_one.mp3'></audio>
-<audio id='haikyu_success' src='haikyu_success.mp3'></audio>
-<audio id='0-oyaoyaoya' src='0-oyaoyaoya.mp3'></audio>
-<audio id='1-dung' src='1-dung.mp3'></audio>
-<audio id='2-yaho' src='2-yaho.mp3'></audio>
-<audio id='3-arara' src='3-arara.mp3'></audio>
-<audio id='4-nice' src='4-nice.mp3'></audio>
-<audio id='5-nani' src='5-nani.MP3'></audio>
-<audio id='6-heyheyhey' src='6-heyheyhey.mp3'></audio>
 <script>
 window.onload = function() {
  var canvas = document.getElementById("viewport");
@@ -201,28 +191,6 @@ window.onload = function() {
          resetRemoved();
          for (var i=0; i<cluster.length; i++) {
              cluster[i].removed = true;
-             if (player.bubble.tiletype == 0) {
-             	var audio = document.getElementById('0-oyaoyaoya');
-             	audio.play();
-             } else if (player.bubble.tiletype == 1) {
-            	var audio = document.getElementById('1-dung');
-            	audio.play();
-             } else if (player.bubble.tiletype == 2) {
-            	var audio = document.getElementById('2-yaho');
-            	audio.play();
-             } else if (player.bubble.tiletype == 3) {
-            	var audio = document.getElementById('3-arara');
-            	audio.play();
-             } else if (player.bubble.tiletype == 4) {
-            	var audio = document.getElementById('4-nice');
-            	audio.play();
-             } else if (player.bubble.tiletype == 5) {
-            	var audio = document.getElementById('5-nani');
-            	audio.play();
-             } else if (player.bubble.tiletype == 6) {
-            	var audio = document.getElementById('6-heyheyhey');
-            	audio.play();
-             }
          }
          score += cluster.length * 100;
          floatingclusters = findFloatingClusters();
@@ -510,8 +478,6 @@ window.onload = function() {
          context.font = "24px Verdana";
          drawCenterText("~ 경기 종료 ~", level.x, level.y + level.height / 2 + 10, level.width);
          drawCenterText("모이카이... 모이카이!!! 야로!!! click", level.x, level.y + level.height / 2 + 40, level.width);
-         var audio = document.getElementById('haikyu_success');
-		 audio.play();  
      }
  }
  function drawFrame() {
@@ -686,13 +652,9 @@ window.onload = function() {
  function onMouseDown(e) {
      var pos = getMousePos(canvas, e);
      if (gamestate == gamestates.ready) {
-         shootBubble();
-         var audio = document.getElementById('haikyu_shoot');
-		 audio.play();          
+         shootBubble();     
      } else if (gamestate == gamestates.gameover) {
          newGame();
-         var audio = document.getElementById('haikyu_one');
-		 audio.play();   
      }
  }
  function getMousePos(canvas, e) {
